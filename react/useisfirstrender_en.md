@@ -1,4 +1,16 @@
+Priya Pandey
 
-There is no solution yet.
+To identify the first render, we can use a global variable and the useRef hook. This method allows us to keep track of the initial render of the component.
 
-Would you like to [contribute to the solution](https://github.com/BFEdev/BFE.dev-solutions/blob/main/react/useisfirstrender_en.md)? [Contribute guideline](https://github.com/BFEdev/BFE.dev-solutions#how-to-contribute)
+import {useRef} from 'react';
+let val=true;
+export function useIsFirstRender(): boolean {
+  const isFirst=useRef(true);
+  if(val){
+    val=false;
+    return isFirst.current;
+  }
+    return val;
+}
+
+
